@@ -1,9 +1,7 @@
 # DemoProject
 Dagger Hilt, MVP Moxy, Retrofit, Kotlin coroutine, Sealed class
 
-
-//Presenterda ma'lumotlarni handler qilish
-
+#Presenterda ma'lumotlarni handler qilish
 
 override fun loadPost() {
         viewState.showRefresh()
@@ -26,7 +24,7 @@ override fun loadPost() {
         }
     }
     
-    //Api module(Dagger Hilt)
+#Api module(Dagger Hilt)
     
     
     @Module
@@ -51,7 +49,7 @@ class RetrofitModule {
         .build()
 }
 
-  //Repository
+#Repository
 
 class PostRepository @Inject constructor(private val api: PostApi) : IPostContract.Model {
     override suspend fun loadPost(): ResultData<List<Post>> {
