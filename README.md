@@ -1,7 +1,7 @@
 # DemoProject
 Dagger Hilt, MVP Moxy, Retrofit, Kotlin coroutine, Sealed class
 
-override fun loadPost() {
+        override fun loadPost() {
         viewState.showRefresh()
         presenterScope.launch {
             try {
@@ -24,8 +24,8 @@ override fun loadPost() {
     
     
     @Module
-@InstallIn(SingletonComponent::class)
-class ApiModule {
+    @InstallIn(SingletonComponent::class)
+    class ApiModule {
 
     @Provides
     @Singleton
@@ -35,17 +35,17 @@ class ApiModule {
     //Retrofit module(Dagger Hilt)
     
     @Module
-@InstallIn(SingletonComponent::class)
-class RetrofitModule {
+    @InstallIn(SingletonComponent::class)
+    class RetrofitModule {
     @Provides
     @Singleton
     fun getRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-}
+     }
 
-class PostRepository @Inject constructor(private val api: PostApi) : IPostContract.Model {
+    class PostRepository @Inject constructor(private val api: PostApi) : IPostContract.Model {
     override suspend fun loadPost(): ResultData<List<Post>> {
         val response = api.loadPost()
 
@@ -66,4 +66,4 @@ class PostRepository @Inject constructor(private val api: PostApi) : IPostContra
             }
         }
     }
-}
+    }
